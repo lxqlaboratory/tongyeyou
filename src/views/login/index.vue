@@ -2,7 +2,7 @@
 
   <div class="prologin-container">
     <div class="header">
-      <img style="width: 550px;height: 82px;" >
+      <img style="width: 550px;height: 82px;">
       <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white" />
       <span
         style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: white"
@@ -13,28 +13,27 @@
         <div class="input-form">
           <div style="width: 100%;">
             <div style="position: relative;width: 100%;margin-top: 15px;">
-               <span class="svg-container" >
-               <svg-icon icon-class="user" style="margin-top: 10px ;" />
-               </span>
-              <input v-model="loginForm.username"  maxlength="12" class="login-form-input" style="width: 91%">
+              <span class="svg-container">
+                <svg-icon icon-class="user" style="margin-top: 10px ;" />
+              </span>
+              <input v-model="loginForm.username" maxlength="12" class="login-form-input" style="width: 91%">
             </div>
             <div style="position: relative;width: 100%;margin-top: 30px;">
-               <span class="svg-container">
-             <svg-icon icon-class="password" />
-           </span>
-              <input v-model="loginForm.password" maxlength="12"  :type="showPassword?'':'password'" class="login-form-input" style="width: 91%">
+              <span class="svg-container">
+                <svg-icon icon-class="password" />
+              </span>
+              <input v-model="loginForm.password" maxlength="12" :type="showPassword?'':'password'" class="login-form-input" style="width: 91%">
               <el-button
                 type="text"
                 style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #ff9419"
-              >
-              </el-button>
+              />
             </div>
           </div>
 
           <div style="width: 100%;margin-top: 10px">
             <el-row>
               <el-col>
-                <el-button  class="loginBtn" style="width: 100%;margin-bottom: 5%;background: #ff9419" :loading="loading" @click="handleLogin">登录</el-button>
+                <el-button class="loginBtn" style="width: 100%;margin-bottom: 5%;background: #ff9419" :loading="loading" @click="handleLogin">登录</el-button>
               </el-col>
             </el-row>
             <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;color:#ff9419">
@@ -57,8 +56,8 @@
       <div style="width: 75%;background-color: gainsboro;height: 1px;" />
       <div class="notice-title">天一旅游同业中心</div>
       <span style="color: gray;font-size: 14px;line-height: 200%;">
-        <dd></dd>
-        <dd></dd>
+        <dd />
+        <dd />
       </span>
     </div>
     <div class="login-bottom">本科实践教学网络平台 </div>
@@ -67,51 +66,51 @@
 </template>
 
 <script>
-  import { webLogin } from '@/api/login'
-  export default {
-    name: 'Login',
-    data() {
-      return {
-        loginForm: {
-          username: '',
-          password: ''
-        },
-        ydxy: true,
-        isPasswordType: true,
-        loading: false,
-        passwordType: 'password',
-        redirect: undefined
-      }
-    },
-    methods: {
-      showPwd() {
-        if (this.passwordType === 'password') {
-          this.passwordType = ''
-        } else {
-          this.passwordType = 'password'
-        }
-        this.$nextTick(() => {
-          this.$refs.password.focus()
-        })
+import { webLogin } from '@/api/login'
+export default {
+  name: 'Login',
+  data() {
+    return {
+      loginForm: {
+        username: '',
+        password: ''
       },
-      handleLogin() {
-        webLogin({ loginName: this.loginForm.username, password: this.loginForm.password }).then(response => {
-          if (response.reCode == 0) {
-            this.$router.push({ path: '/dashboard' })
-          } else {
-            this.$message({
-              type: 'error',
-              message: '登录信息错误'
-            })
-          }
-          this.loading = false
-        }).catch(err => {
-          this.loading = false
-          console.log(err)
-        })
+      ydxy: true,
+      isPasswordType: true,
+      loading: false,
+      passwordType: 'password',
+      redirect: undefined
+    }
+  },
+  methods: {
+    showPwd() {
+      if (this.passwordType === 'password') {
+        this.passwordType = ''
+      } else {
+        this.passwordType = 'password'
       }
+      this.$nextTick(() => {
+        this.$refs.password.focus()
+      })
+    },
+    handleLogin() {
+      webLogin({ loginName: this.loginForm.username, password: this.loginForm.password }).then(response => {
+        if (response.reCode == 0) {
+          this.$router.push({ path: '/dashboard' })
+        } else {
+          this.$message({
+            type: 'error',
+            message: '登录信息错误'
+          })
+        }
+        this.loading = false
+      }).catch(err => {
+        this.loading = false
+        console.log(err)
+      })
     }
   }
+}
 </script>
 
 <style lang="scss">

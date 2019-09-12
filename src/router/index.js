@@ -43,9 +43,15 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '/dashboard',
+    path: '/',
     component: Layout,
-    meta: { title: '首页', icon: 'dashboard',roles: ['100'] }
+    redirect: '/dashboard',
+    children: [{
+      path: 'dashboard',
+      name: 'Dashboard',
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: 'Dashboard', icon: 'dashboard' }
+    }]
   },
   {
     path: '/personInfo',
@@ -134,8 +140,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-  { path: '/', redirect: '/login', hidden: true },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
