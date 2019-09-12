@@ -14,7 +14,6 @@
       </template>
       <sidebar-item
         v-for="child in item.children"
-        v-if="validateRole(child)"
         :key="child.path"
         :is-nest="true"
         :item="child"
@@ -65,11 +64,7 @@ export default {
   methods: {
 
     validateRole: function(routeItem) { //验证用户权限
-      for (var i = 0; i < this.menuList.length; i++) {
-        if (routeItem.meta.roles == this.menuList[i].resid) {
-          return true
-        }
-      }
+     return true
     },
 
     hasOneShowingChild(children = [], parent) {

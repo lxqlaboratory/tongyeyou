@@ -12,7 +12,6 @@
       >
         <sidebar-item
           v-for="route in routes"
-          v-if="validateRole(route)"
           :key="route.path"
           :item="route"
           :menuList="menuList"
@@ -67,14 +66,7 @@ export default {
       })
     },
     validateRole: function(routeItem) { // 验证用户权限
-      if (routeItem.meta == null || routeItem.meta.roles == null) {
-        return true
-      }
-      for (var i = 0; i < this.menuList.length; i++) {
-        if (routeItem.meta.roles == this.menuList[i].resid) {
-          return true
-        }
-      }
+      return true
     }
   }
 }

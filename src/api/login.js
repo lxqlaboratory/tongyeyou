@@ -8,10 +8,10 @@ export function webLogin(jsonForm) {
   })
 }
 
-export function initMenu() {
-  return request({
-    url: '/web/initMenu',
-    method: 'POST',
-    data: {}
-  })
-}
+// export function initMenu() {
+//   return request({
+//     url: '/web/initMenu',
+//     method: 'POST',
+//     data: {}
+//   })
+// }

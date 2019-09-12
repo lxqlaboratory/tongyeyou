@@ -4,7 +4,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container"  style="position: absolute;right: 1%;top:-2px;float: right" trigger="click">
         <div class="avatar-wrapper">
-          <span style="font-size: 20px;color: black">{{this.perName}}</span>
+          <span style="font-size: 20px;color: black"></span>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">
           <el-dropdown-item divided>
