@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '本科实践教学平台',
+  title: '天一旅游同业中心',
 
   /**
    * @type {boolean} true | false
