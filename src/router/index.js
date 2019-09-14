@@ -63,18 +63,6 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: 'stuInfomation',
-        name: 'stuInfomation',
-        component: () => import('@/views/personInfo/stuInfomation'),
-        meta: { title: '学生个人信息', icon: 'user' , roles: ['1'] }
-      },
-      {
-        path: 'teacherInfomation',
-        name: 'teacherInfomation',
-        component: () => import('@/views/personInfo/teacherInfomation'),
-        meta: { title: '教师个人信息', icon: 'user' , roles: ['3'] }
-      },
-      {
         path: 'changepwd',
         name: 'changepwd',
         component: () => import('@/views/personInfo/changepwd'),
@@ -83,60 +71,31 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/nested',
+    path: '/productManagement',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    name: 'productManagement',
     meta: {
-      title: 'Nested',
-      icon: 'nested',
-      roles: ['110']
-  },
+      title: '产品管理',
+      icon: 'example'
+    },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'productClassificationSetting',
+        name: 'productClassificationSetting',
+        component: () => import('@/views/productManagement/productClassificationSetting'),
+        meta: { title: '产品分类设置', icon: 'form', roles: ['16'] }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
+        path: 'listOfAllProduncts',
+        name: 'listOfAllProduncts',
+        component: () => import('@/views/productManagement/listOfAllProduncts'),
+        meta: { title: '所有产品列表', icon: 'form', roles: ['16'] }
+      },
+      {
+        path: 'addTravelProducts',
+        name: 'addTravelProducts',
+        component: () => import('@/views/productManagement/addTravelProducts'),
+        meta: { title: '添加旅游产品', icon: 'form', roles: ['16'] }
       }
     ]
   },
