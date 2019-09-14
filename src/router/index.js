@@ -99,6 +99,41 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/orderManagement',
+    component: Layout,
+    name: 'orderManagement',
+    meta: {
+      title: '订单管理',
+      icon: 'example'
+    },
+    children: [
+      {
+        path: 'listOfAllOrders',
+        name: 'listOfAllOrders',
+        component: () => import('@/views/orderManagement/listOfAllOrders'),
+        meta: { title: '所有订单列表', icon: 'form', roles: ['16'] }
+      },
+      {
+        path: 'unProcessedOrder',
+        name: 'unProcessedOrder',
+        component: () => import('@/views/orderManagement/unProcessedOrder'),
+        meta: { title: '未处理订单', icon: 'form', roles: ['16'] }
+      },
+      {
+        path: 'arrearsOrder',
+        name: 'arrearsOrder',
+        component: () => import('@/views/orderManagement/arrearsOrder'),
+        meta: { title: '欠费订单', icon: 'form', roles: ['16'] }
+      },
+      {
+        path: 'rejectedOrder',
+        name: 'rejectedOrder',
+        component: () => import('@/views/orderManagement/rejectedOrder'),
+        meta: { title: '被拒绝订单', icon: 'form', roles: ['16'] }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
