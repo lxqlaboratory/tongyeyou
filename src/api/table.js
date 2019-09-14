@@ -7,3 +7,11 @@ export function fillProjectTrainningReportInit(data) {
     data
   })
 }
+
+export function test() {
+  return request({
+    url: '/web/test',
+    method: 'post',
+    data: {}
+  })
+}
